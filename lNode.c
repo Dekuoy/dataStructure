@@ -80,3 +80,30 @@ bool insertNextNode(lNode *p , int e){
     return true;
 }
 
+//删除节点
+bool deleteNode(LinkList l , int i , int * e){//删除表l中第i个位置的元素，并用e返回删除元素的值
+    //对i进行判断
+    if(i < 1){
+        return false;
+    }
+    int j = 0;
+    lNode * p ;
+    p = l;
+    while (p != NULL && j < i-1)
+    {
+        p = p->next;
+        j++;
+    }
+
+    if(p == NULL || p->next == NULL){
+        return false;
+    }//将p指向被删除节点的前一个节点
+
+    lNode* q;
+    q = p->next;//将q指向被删除的节点
+    *e = q->e;
+    p->next = q->next;
+    free(q);
+    return true;
+}
+
