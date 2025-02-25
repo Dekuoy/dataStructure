@@ -34,7 +34,7 @@ bool initLinkList2(LinkList *l){
 
 
 //插入节点
-bool insertLink(LinkList l , int i ,int e){
+bool insertList(LinkList l , int i ,int e){
    lNode* p;//指针p指向当前扫描到的节点
     p = l;
     int j = 0;
@@ -43,15 +43,40 @@ bool insertLink(LinkList l , int i ,int e){
         p = p->next;
         j++;
     }
-    if(p == NULL){
+
+
+    return insertNextNode(p ,e);
+}
+
+
+//向前插入节点
+bool insertPriorNode(lNode* p , int e){
+    if (p == NULL) {
         return false;
     }
-    lNode *s = (lNode*)malloc(sizeof(lNode*));
-    s->e = e;
+    lNode* s = (lNode*)malloc(sizeof(lNode));
+    if (s == NULL) {
+        return false;
+    }
+    s->e = p->e;
     s->next = p->next;
     p->next = s;
-    
+    p->e = e;
     return true;
 }
 
+//向后插入节点
+bool insertNextNode(lNode *p , int e){
+    if(p == NULL){
+        return false;
+    }
+    lNode* s = (lNode*)malloc(sizeof(lNode));
+    if(s == NULL){
+        return false;
+    }
+    s->next = p->next;
+    s->e = e;
+    p->next = s;
+    return true;
+}
 
