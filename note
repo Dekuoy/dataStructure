@@ -1,0 +1,14 @@
+头插法，每次插入都插入到第一个元素
+（逆转单链表），一个单链表，使用头插法创建新的单链表
+
+
+双链表：
+p->prior->next = q
+q -> next = p
+next和prior都要改变
+
+p->prior->next=p->next
+p->next->prior=p->prior
+
+
+总结总的情况：
