@@ -5,7 +5,6 @@ void ChooseSort(int a[], int n);
 void PrintArr(int a[], int n, int begin);
 void Swap(int a[], int i, int j);
 
-int Pivot(int a[], int low, int high);
 
 int a[7] = {38, 49, 65, 97, 76, 13, 27};
 
